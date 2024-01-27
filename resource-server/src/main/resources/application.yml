@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resource-server:
+        clients:
+          web-client:
+            origin: http://127.0.0.1:3000
+        jwt:
+          issuer-uri: http://authorization-server:9000
+  datasource:
+    url: jdbc:mysql://tulip-db:3306/tulip
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    open-in-view: false
+logging:
+  file.path: /var/log/tulip/resource-server

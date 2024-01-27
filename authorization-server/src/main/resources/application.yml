@@ -1,0 +1,28 @@
+server:
+  port: 9000
+
+spring:
+  authorization-server:
+    issuer: http://authorization-server:9000
+    clients:
+      web-client:
+        origin: http://127.0.0.1:3000
+        login-redirect: http://127.0.0.1:3000/login
+        silent-refresh-redirect: http://127.0.0.1:3000/silent-refresh.html
+      mobile-client:
+        login-redirect: com.erp.tulip://callback
+    token-ttl: 5
+
+  datasource:
+    url: jdbc:mysql://tulip-db:3306/tulip
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+logging:
+  file.path: /var/log/tulip/auth-server

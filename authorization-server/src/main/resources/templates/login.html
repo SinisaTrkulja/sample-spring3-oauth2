@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prijavite se</title>
+  <link rel="stylesheet" th:href="@{/css/normalize.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<div class="wrapper">
+  <div class="hero">
+    <div class="logo">
+      <img th:src="@{/images/Logomark.svg}" />
+      <h1>Tulip <span>ERP</span></h1>
+    </div>
+    <div class="info">
+      <p>Saznajte više o Tulip ERP-u na adresi:</p>
+      <a target="_blank" th:href="@{https://tulip.ba}" th:utext="${' www.tulip.ba '}"></a>
+
+    </div>
+    <div class="links">
+      <a href="#">Podrška</a>
+      <a href="#">Licence</a>
+      <a href="#">Pravila korištenja</a>
+    </div>
+  </div>
+  <div class="login">
+    <div class="form">
+      <h2>Prijavite se</h2>
+      <p class="formTagline">
+        Unesite korisničko ime i lozinku da biste se prijavili.
+      </p>
+      <button class="googleButton">
+        <img th:src="@{/images/Google.svg}" /> Prijavite se preko Google naloga
+      </button>
+      <div class="divider">
+        <span></span>
+        <p>ili</p>
+        <span></span>
+      </div>
+      <form class="form-signin" method="post" th:action="@{/login}">
+        <div class="loginInput">
+          <label>Korisničko ime</label>
+          <input required autofocus type="text" id="username" name="username" placeholder="Unesite korisničko ime"/>
+        </div>
+        <div class="loginInput">
+          <label>Lozinka</label>
+          <input required id="password" name="password" type="password" placeholder="Unesite lozinku" />
+        </div>
+        <button class="loginSubmit" type="submit">Potvrdi</button>
+      </form>
+      <div class="loginError">
+        <p>Greška tokom prijave?</p>
+        <a href="#">Kontaktirajte nas.</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

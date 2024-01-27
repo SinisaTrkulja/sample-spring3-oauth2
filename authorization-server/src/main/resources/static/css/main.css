@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+:root {
+  --color-light-1: #fff;
+  --color-light-2: #f4f7fe;
+  --color-light-3: #e0e5f2;
+  --color-primary: #422afb;
+  --color-primary-light: #7155ed;
+  --color-dark-1: #1b254b;
+  --color-dark-2: #a3aed4;
+  --font-lg: 1rem;
+  --font-md: 0.875rem;
+  --font-sm: 0.75rem;
+}
+
+body {
+  color: var(--color-dark-1);
+  font-family: "Montserrat", sans-serif;
+  font-variant-numeric: tabular-nums;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 500;
+  font-size: var(--font-lg);
+}
+
+p,
+a,
+ul,
+ol {
+  font-size: var(--font-md);
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-md);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+a.active {
+  color: var(--color-dark-1) !important;
+}
+
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.hero {
+  background: linear-gradient(180deg, #7450ff 0%, #3412dc 100%);
+  border-radius: 0 0 11rem 0;
+  color: var(--color-light-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100%;
+  flex-grow: 3;
+}
+
+.hero .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero .logo img {
+  height: auto;
+  margin-left: 1rem;
+  max-width: 10rem;
+}
+
+.hero .logo h1 {
+  color: var(--color-light-1);
+  font-size: 3rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.hero .logo h1 span {
+  font-weight: 600;
+  font-size: 1.25rem;
+  position: absolute;
+}
+
+.hero .info {
+  border: 1px solid var(--color-primary-light);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 2.5rem;
+}
+
+.hero .info a {
+  color: var(--color-light-1);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.hero .links {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  bottom: 2rem;
+}
+
+.hero .links a {
+  color: var(--color-light-1);
+  font-weight: 500;
+}
+
+.login {
+  height: 100%;
+  flex-grow: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login .form {
+  padding: 1rem;
+  width: 100%;
+  max-width: 25rem;
+}
+
+.login .form h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.login .form p {
+  color: var(--color-dark-2);
+}
+
+.login .form .googleButton {
+  background-color: var(--color-light-2);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-block: 1rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+.login .form .googleButton:hover {
+  opacity: 0.8;
+}
+
+.login .form .divider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block: 1rem;
+}
+
+.login .form .divider span {
+  background-color: var(--color-light-2);
+  height: 1px;
+  flex-grow: 1;
+}
+
+.login .form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.loginInput label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.loginInput input {
+  border: 1px solid var(--color-light-3);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+}
+
+.loginInput input::placeholder {
+  color: var(--color-light-3);
+}
+
+.loginInput input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.loginSubmit {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-light-3);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-light-1);
+}
+
+.loginSubmit:hover {
+  opacity: 0.85;
+}
+
+.loginError {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.login .form .loginError p {
+  color: var(--color-dark-1);
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    background: linear-gradient(180deg, #7450ff 0%, #3412dc 100%);
+    flex-direction: column;
+  }
+
+  .hero {
+    background: transparent;
+    height: auto;
+    padding-block: 4rem;
+  }
+
+  .hero .logo img {
+    max-width: 5rem;
+  }
+
+  .hero .info {
+    display: none;
+  }
+
+  .hero .links {
+    display: none;
+  }
+
+  .login {
+    background-color: var(--color-light-1);
+    border-top-left-radius: 6rem;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+  }
+
+  .form h2 {
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+
+  .formTagline {
+    display: none;
+  }
+}

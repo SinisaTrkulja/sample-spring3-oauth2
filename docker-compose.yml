@@ -1,0 +1,59 @@
+services:
+  resource-server:
+#    image: "ghcr.io/github_name/project_name/module_name:main"
+    build:
+      context: ./resource-server
+      target: ${RUN_ENVIRONMENT}
+    environment:
+      - MYSQL_USERNAME=${MYSQL_USERNAME}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - /var/erp-service/logs/resource-server:/usr/app/resource-server/logs
+    depends_on:
+      - authorization-server
+#      - redis
+    restart: always
+    networks:
+      net:
+
+  authorization-server:
+#    image: "ghcr.io/github_name/project_name/module_name:main"
+    build:
+      context: ./authorization-server
+      target: ${RUN_ENVIRONMENT}
+    environment:
+      - MYSQL_USERNAME=${MYSQL_USERNAME}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - /var/erp-service/logs/auth-server:/usr/app/auth-server/logs
+    depends_on:
+      - tulip-db
+    restart: always
+    networks:
+      net:
+
+  tulip-db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - tulip-datavolume:/var/lib/mysql
+    networks:
+      net:
+
+  nginx-proxy:
+    build:
+      context: ./nginx
+    ports:
+      - "8080:80"
+      - "9000:81"
+    networks:
+      net:
+
+volumes:
+  tulip-datavolume:
+
+networks:
+  net:

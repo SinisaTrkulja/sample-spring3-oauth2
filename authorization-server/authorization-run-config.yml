@@ -1,0 +1,31 @@
+server:
+  port: 9000
+
+spring:
+  authorization-server:
+    issuer: http://127.0.0.1:9000
+    clients:
+      web-client:
+        origin: http://127.0.0.1:3000
+        login-redirect: http://127.0.0.1:3000/login
+        silent-refresh-redirect: http://127.0.0.1:3000/silent-refresh.html
+    token-ttl: 120
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mysql
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    open-in-view: false
+  sql:
+    init:
+      mode: always
+
+
