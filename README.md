@@ -7,6 +7,7 @@ This is an excerpt from one of my side projects. It's a simple but feature-rich 
 * There are some cool and useful [features](#features) which work nicely together, which makes this repo a great place to see how it all blends together.
 * It's a simple demo of how to deploy a Docker container locally as well as remotely.
 * It demonstrates a useful _GitHub Workflow_ that builds and publishes Docker images to your _ghcr.io_ repository.
+* It shows how to setup a simple NGINX proxy and configure simple rules for both modules
 
 
 
