@@ -1,4 +1,4 @@
-package com.tulip.authorizationserver
+package com.tulip.authorizationserver.login
 
 import jakarta.persistence.*
 import org.springframework.security.core.GrantedAuthority

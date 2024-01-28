@@ -5,8 +5,8 @@ import com.nimbusds.jose.jwk.JWKSet
 import com.nimbusds.jose.jwk.RSAKey
 import com.nimbusds.jose.jwk.source.JWKSource
 import com.nimbusds.jose.proc.SecurityContext
-import com.tulip.authorizationserver.User
-import com.tulip.authorizationserver.UserRepository
+import com.tulip.authorizationserver.login.User
+import com.tulip.authorizationserver.login.UserRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

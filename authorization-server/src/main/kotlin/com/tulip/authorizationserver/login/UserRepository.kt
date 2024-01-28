@@ -1,4 +1,4 @@
-package com.tulip.authorizationserver
+package com.tulip.authorizationserver.login
 
 import org.springframework.data.repository.CrudRepository
 import java.util.*

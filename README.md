@@ -34,7 +34,7 @@ VALUES (1, '', 'user', '$2a$12$nQOQdWWBbJyPApU/9/3HzehQu4vI.c6mNcDQ.I9ubx27Evt0g
 #### Features:
 * Auth2 PKCE Authorization flow
 * Access token customization
-* Custom (and cool) authorization system for endpoint access based on token details
+* Custom and [cool authorization system](#cool-authorization-system) for endpoint access based on token details
 * Database versioning
 * Support for multi tenancy through DB design and Hibernate's Tenant support
 * OpenAPI documented APIs Swagger
@@ -43,6 +43,13 @@ VALUES (1, '', 'user', '$2a$12$nQOQdWWBbJyPApU/9/3HzehQu4vI.c6mNcDQ.I9ubx27Evt0g
 * Specify build target and environment through env variables
 
 **Swagger documentation**: {server:port}/swagger-ui/index.html
+
+#### Cool authorization system:
+Each endpoint or group of endpoints are marked with an integer which designs their access level. A user is authorized to
+access an endpoint if and only if there is a 1 set in the binary representation
+of the integer that represent his access rights (contained in his access token) at the $2^{n+1}$ place.
+If that's the case then a series of **n** right bit shifts yields an odd number which is the only type of
+number that will return the number 1 when put through an **and** operation with the number 1.
 
 ### Notes:
 I have provided a login page for this example but be mindful not to use it for any other than educational purposes as the project is still underway.
